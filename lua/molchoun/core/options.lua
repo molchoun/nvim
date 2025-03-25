@@ -15,6 +15,17 @@ vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 99
 
+-- Sleuth settings
+vim.g.sleuth_heuristics = false
+
+-- Tabs and indentation
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- For more options, you can see `:help option-list`
@@ -46,7 +57,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'number'
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -62,8 +73,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -82,3 +93,11 @@ vim.opt.incsearch = true
 
 -- Treat a dash (-) as part of a word
 vim.opt.iskeyword:append '-'
+
+-- Change diagnostic color
+vim.cmd [[
+    hi DiagnosticVirtualTextError ctermfg=red guifg=red
+    hi DiagnosticVirtualTextWarn ctermfg=yellow guifg=yellow
+    hi DiagnosticVirtualTextInfo ctermfg=blue guifg=blue
+    hi DiagnosticVirtualTextHint ctermfg=yellow guifg=yellow
+]]
